@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 
 :root {
-  --color-primary: #0B0A09;
-  --color-secondary: #151311;
-  --color-accent: #D6AD70;
-  --color-text: #F5F0E8;
-  --color-text-muted: #B7ADA0;
-  --color-border: rgba(214, 173, 112, 0.2);
+  --color-primary: #FAF5F6;
+  --color-secondary: #F3E5E9;
+  --color-accent: #C44356;
+  --color-text: #4A3B3C;
+  --color-text-muted: #8C7C7E;
+  --color-border: rgba(196, 67, 86, 0.15);
   
   --font-heading: 'Playfair Display', serif;
   --font-body: 'Inter', sans-serif;
@@ -47,7 +47,7 @@ button {
 
 .btn-gold {
   background-color: var(--color-accent);
-  color: var(--color-primary);
+  color: #FFFFFF;
   padding: 12px 24px;
   font-size: 14px;
   font-weight: 500;
@@ -76,7 +76,7 @@ button {
 
 .btn-outline:hover {
   background-color: var(--color-accent);
-  color: var(--color-primary);
+  color: #FFFFFF;
 }
 
 section {

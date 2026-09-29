@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import HeroScene from './3d/HeroScene';
+
 import gsap from 'gsap';
 import './HeroSection.css';
 
@@ -32,7 +32,15 @@ const HeroSection = () => {
 
   return (
     <section id="home" className="hero-section">
-      <HeroScene />
+      <video 
+        className="hero-video-bg" 
+        src="/parlour.mp4" 
+        autoPlay 
+        loop 
+        muted 
+        playsInline
+      />
+      <div className="hero-overlay"></div>
       <div className="hero-content" ref={contentRef}>
         <div className="hero-text">
           <p className="eyebrow">BEAUTY • CARE • CONFIDENCE</p>
