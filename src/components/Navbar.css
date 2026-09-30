@@ -40,8 +40,13 @@
 .logo-subtitle {
   font-size: 0.6rem;
   letter-spacing: 6px;
-  color: var(--color-text-muted);
+  color: #fff;
   margin-top: 2px;
+  transition: color 0.4s ease;
+}
+
+.navbar.scrolled .logo-subtitle {
+  color: var(--color-text-muted);
 }
 
 .nav-links {
@@ -54,9 +59,13 @@
   font-size: 0.9rem;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: var(--color-text);
+  color: #fff;
   transition: color 0.3s ease;
   position: relative;
+}
+
+.navbar.scrolled .nav-links a {
+  color: var(--color-text);
 }
 
 .nav-links a::after {

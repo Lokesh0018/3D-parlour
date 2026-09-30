@@ -1,6 +1,10 @@
 .testimonials-section {
   background-color: var(--color-primary);
   border-top: 1px solid var(--color-border);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .testimonials-container {
@@ -10,10 +14,19 @@
 }
 
 .testimonial-card {
-  padding: 40px;
-  background: var(--color-secondary);
-  border: 1px solid var(--color-border);
-  margin-bottom: 30px;
+  padding: 60px 50px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  margin-bottom: 40px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.05);
+  position: relative;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .stars {
@@ -56,11 +69,23 @@
 
 .control-btn {
   color: var(--color-text-muted);
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
 .control-btn:hover {
-  color: var(--color-accent);
+  color: var(--color-primary);
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  transform: scale(1.05);
 }
 
 .dots {
@@ -69,17 +94,18 @@
 }
 
 .dot {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background-color: var(--color-text-muted);
   cursor: pointer;
-  transition: all 0.3s ease;
-  opacity: 0.3;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0.2;
 }
 
 .dot.active {
   background-color: var(--color-accent);
   opacity: 1;
-  transform: scale(1.2);
+  width: 24px;
+  border-radius: 10px;
 }

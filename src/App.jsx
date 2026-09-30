@@ -4,7 +4,7 @@ import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
 import ServicesSection from './components/ServicesSection';
 import TransformationGallery from './components/TransformationGallery';
-import SalonExperience from './components/SalonExperience';
+
 import Testimonials from './components/Testimonials';
 import PricingSection from './components/PricingSection';
 import BookingSection from './components/BookingSection';
@@ -31,7 +31,7 @@ function App() {
         <AboutSection />
         <ServicesSection />
         <TransformationGallery />
-        <SalonExperience />
+
         <Testimonials />
         <PricingSection />
         <BookingSection />

@@ -20,7 +20,8 @@ const AboutSection = () => {
           ease: "power3.out",
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: "top 70%",
+            start: "top 80%",
+            toggleActions: "play reverse play reverse"
           }
         }
       );
@@ -34,7 +35,8 @@ const AboutSection = () => {
           ease: "power2.out",
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: "top 60%",
+            start: "top 80%",
+            toggleActions: "play reverse play reverse"
           }
         }
       );

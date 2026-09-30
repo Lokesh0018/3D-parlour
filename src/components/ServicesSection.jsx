@@ -29,7 +29,8 @@ const ServicesSection = () => {
           ease: "power2.out",
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: "top 75%",
+            start: "top 80%",
+            toggleActions: "play reverse play reverse"
           }
         }
       );

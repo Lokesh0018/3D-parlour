@@ -25,22 +25,22 @@ const TransformationGallery = () => {
           onMouseMove={handleDrag}
           onTouchMove={handleDrag}
         >
-          {/* Before Image (Background) */}
+          {/* After Image (Background) */}
           <img 
             className="compare-image before" 
-            src="https://images.unsplash.com/photo-1595476108010-b4d1f10d5e43?auto=format&fit=crop&w=800&q=80" 
-            alt="Before Makeup" 
+            src="/after.png" 
+            alt="After Transformation" 
           />
           
-          {/* After Image (Clipped) */}
+          {/* Before Image (Clipped) */}
           <div 
             className="compare-overlay"
             style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}
           >
             <img 
               className="compare-image after" 
-              src="https://images.unsplash.com/photo-1595476108010-b4d1f10d5e43?auto=format&fit=crop&w=800&q=80&sat=100" 
-              alt="After Makeup" 
+              src="/before.png" 
+              alt="Before Transformation" 
             />
           </div>
 
