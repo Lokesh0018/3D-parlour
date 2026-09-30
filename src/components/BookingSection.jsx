@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './BookingSection.css';
 
 const BookingSection = () => {
@@ -14,6 +16,51 @@ const BookingSection = () => {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const sectionRef = useRef(null);
+  const logoRef = useRef(null);
+  const abstractRef = useRef(null);
+  const flowersRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.to(logoRef.current, {
+        y: -150,
+        rotation: 10,
+        ease: "none",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true
+        }
+      });
+
+      gsap.to(abstractRef.current, {
+        y: 100,
+        rotation: -10,
+        ease: "none",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true
+        }
+      });
+
+      gsap.to(flowersRef.current, {
+        y: -80,
+        ease: "none",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true
+        }
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -34,7 +81,7 @@ const BookingSection = () => {
   };
 
   return (
-    <section id="contact" className="booking-section">
+    <section id="contact" className="booking-section" ref={sectionRef}>
       <div className="booking-container">
         <div className="booking-image-wrapper">
           <img 
@@ -44,6 +91,11 @@ const BookingSection = () => {
           />
         </div>
         <div className="booking-form-wrapper">
+          {/* Parallax Elements */}
+          <img src="/abstract_shapes-removebg-preview.png" alt="" className="booking-abstract" ref={abstractRef} />
+          <img src="/L_Logo-removebg-preview.png" alt="" className="booking-logo-watermark" ref={logoRef} />
+          <img src="/left-bottom_corner_flowers-removebg-preview.png" alt="" className="booking-flowers" ref={flowersRef} />
+          
           <h2 className="section-title" style={{textAlign: 'left', marginBottom: '1rem'}}>Reserve Your Time</h2>
           <p className="booking-subtitle">Schedule your luxury experience with our expert team.</p>
           
