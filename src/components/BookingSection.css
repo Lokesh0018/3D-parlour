@@ -15,6 +15,20 @@
 
 .booking-image-wrapper {
   overflow: hidden;
+  position: relative;
+}
+
+.booking-image-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--color-accent);
+  opacity: 0.25;
+  mix-blend-mode: multiply;
+  pointer-events: none;
 }
 
 .booking-img {

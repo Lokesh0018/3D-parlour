@@ -38,7 +38,7 @@ const BookingSection = () => {
       <div className="booking-container">
         <div className="booking-image-wrapper">
           <img 
-            src="https://images.unsplash.com/photo-1596178065887-1198b6148b2b?auto=format&fit=crop&w=800&q=80" 
+            src="/salon.png" 
             alt="Relaxing Spa Experience" 
             className="booking-img"
           />

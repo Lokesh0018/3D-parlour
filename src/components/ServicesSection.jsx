@@ -16,6 +16,9 @@ const services = [
 const ServicesSection = () => {
   const sectionRef = useRef(null);
   const cardsRef = useRef([]);
+  const parallaxRef1 = useRef(null);
+  const parallaxRef2 = useRef(null);
+  const parallaxRef3 = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -34,6 +37,43 @@ const ServicesSection = () => {
           }
         }
       );
+
+      // Parallax background items
+      gsap.to(parallaxRef1.current, {
+        y: -150,
+        rotation: 15,
+        ease: "none",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true
+        }
+      });
+      
+      gsap.to(parallaxRef2.current, {
+        y: 200,
+        rotation: -20,
+        ease: "none",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true
+        }
+      });
+
+      gsap.to(parallaxRef3.current, {
+        y: -100,
+        rotation: 10,
+        ease: "none",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true
+        }
+      });
     }, sectionRef);
 
     return () => ctx.revert();
@@ -41,6 +81,11 @@ const ServicesSection = () => {
 
   return (
     <section id="services" className="services-section" ref={sectionRef}>
+      {/* Parallax Background Elements */}
+      <img src="/makeup_brush-removebg-preview.png" alt="" className="parallax-el el-1" ref={parallaxRef1} />
+      <img src="/lipsstick-removebg-preview.png" alt="" className="parallax-el el-2" ref={parallaxRef2} />
+      <img src="/eyebrush-removebg-preview.png" alt="" className="parallax-el el-3" ref={parallaxRef3} />
+      
       <h2 className="section-title">Our Services</h2>
       <div className="services-grid">
         {services.map((svc, index) => (

@@ -1,5 +1,41 @@
 .services-section {
   background-color: var(--color-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+.parallax-el {
+  position: absolute;
+  opacity: 0.15;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.el-1 {
+  top: 10%;
+  left: -5%;
+  width: 350px;
+  transform: rotate(-15deg);
+}
+
+.el-2 {
+  top: 40%;
+  right: -5%;
+  width: 300px;
+  transform: rotate(20deg);
+}
+
+.el-3 {
+  bottom: -5%;
+  left: 20%;
+  width: 250px;
+  transform: rotate(-10deg);
+}
+
+.section-title, .services-grid {
+  position: relative;
+  z-index: 1;
 }
 
 .services-grid {
