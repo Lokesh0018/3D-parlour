@@ -1,10 +1,94 @@
-import React from 'react';
-import { MapPin, Phone, Mail, Globe } from 'lucide-react';
+import React, { useEffect, useRef } from 'react';
+import { MapPin, Phone, Mail, ArrowRight } from 'lucide-react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './Footer.css';
 
 const Footer = () => {
+  const footerRef = useRef(null);
+  const brushRef = useRef(null);
+  const lipstickRef = useRef(null);
+  const eyebrushRef = useRef(null);
+  const logoRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      let mm = gsap.matchMedia();
+      
+      mm.add("(prefers-reduced-motion: no-preference)", () => {
+        // Entrance animation for columns
+        gsap.from(".footer-col", {
+          scrollTrigger: {
+            trigger: footerRef.current,
+            start: "top 85%",
+          },
+          y: 40,
+          opacity: 0,
+          duration: 0.8,
+          stagger: 0.15,
+          ease: "power2.out"
+        });
+
+        // Parallax for decorative elements
+        gsap.to(brushRef.current, {
+          y: -150,
+          rotation: 15,
+          ease: "none",
+          scrollTrigger: {
+            trigger: footerRef.current,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true
+          }
+        });
+        gsap.to(lipstickRef.current, {
+          y: 120,
+          rotation: -20,
+          ease: "none",
+          scrollTrigger: {
+            trigger: footerRef.current,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true
+          }
+        });
+        gsap.to(eyebrushRef.current, {
+          y: -100,
+          x: -50,
+          rotation: 10,
+          ease: "none",
+          scrollTrigger: {
+            trigger: footerRef.current,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true
+          }
+        });
+        gsap.to(logoRef.current, {
+          y: -120,
+          scale: 1.05,
+          ease: "none",
+          scrollTrigger: {
+            trigger: footerRef.current,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true
+          }
+        });
+      });
+    }, footerRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <footer className="footer">
+    <footer className="footer" ref={footerRef}>
+      {/* Parallax Add-ons */}
+      <img src="/L_Logo-removebg-preview.png" alt="" className="footer-l-logo" ref={logoRef} />
+      <img src="/makeup_brush-removebg-preview.png" alt="" className="footer-brush" ref={brushRef} />
+      <img src="/lipsstick-removebg-preview.png" alt="" className="footer-lipstick" ref={lipstickRef} />
+      <img src="/eyebrush-removebg-preview.png" alt="" className="footer-eyebrush" ref={eyebrushRef} />
+
       <div className="footer-container">
         <div className="footer-col brand-col">
           <div className="footer-logo">LUMIÈRE</div>
@@ -12,9 +96,9 @@ const Footer = () => {
             The ultimate destination for luxury beauty and personalized care. Elevate your confidence with our bespoke treatments.
           </p>
           <div className="social-links">
-            <a href="#">IG</a>
-            <a href="#">FB</a>
-            <a href="#">X</a>
+            <a href="#" aria-label="Instagram">IG</a>
+            <a href="#" aria-label="Facebook">FB</a>
+            <a href="#" aria-label="Twitter">X</a>
           </div>
         </div>
 
@@ -46,14 +130,14 @@ const Footer = () => {
             <MapPin size={18} className="contact-icon" />
             <span>123 Luxury Avenue, Beverly Hills, CA 90210</span>
           </div>
-          <div className="contact-item">
+          <a href="tel:+15551234567" className="contact-item contact-link">
             <Phone size={18} className="contact-icon" />
             <span>+1 (555) 123-4567</span>
-          </div>
-          <div className="contact-item">
+          </a>
+          <a href="mailto:hello@lumierebeauty.com" className="contact-item contact-link">
             <Mail size={18} className="contact-icon" />
             <span>hello@lumierebeauty.com</span>
-          </div>
+          </a>
           
           <div className="hours">
             <h5 className="hours-title">Hours</h5>
